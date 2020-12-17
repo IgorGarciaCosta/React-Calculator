@@ -3,6 +3,7 @@ import './App.css';
 import Button from './components/Button';
 import Input from './components/Input'
 import ClearButton from './components/ClearButton';
+import Delete from './components/Delete';
 
 class App extends Component {
   constructor(props){//fiz o cosntrutor pq to usando setState
@@ -36,6 +37,12 @@ class App extends Component {
     this.setState({input:""});
   }
 
+  deleteFromInput=()=>{
+    
+
+    this.setState({input:this.state.input.substr(0, (this.state.input.length-1))});
+  }
+
 
   render() {
     return (
@@ -50,7 +57,7 @@ class App extends Component {
             <Button>(</Button>
             <Button>)</Button>
             <ClearButton handleClear={this.clearInput}>C</ClearButton>
-            <Button>Del</Button>
+            <Delete handleDelete = {this.deleteFromInput}>Del</Delete>
           </div>
 
           <div className="row">
